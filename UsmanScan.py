@@ -1,5 +1,6 @@
-import matplotlib.pyplot as plt
 from math import atan2
+import turtle as tl
+from random import random
 
 def graham_scan(points):
     def orientation(p, q, r):
@@ -34,24 +35,12 @@ def graham_scan(points):
 
     return hull
 
-def plot_convex_hull(points, convex_hull):
-    x_points, y_points = zip(*points)
-    x_hull, y_hull = zip(*convex_hull)
-
-    plt.figure(figsize=(8, 8))
-    plt.scatter(x_points, y_points, color='blue', label='Points')
-    plt.plot(x_hull + (x_hull[0],), y_hull + (y_hull[0],), color='red', linestyle='-', linewidth=2, label='Convex Hull')
-    plt.title('Graham Scan Convex Hull')
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.legend()
-    plt.grid(True)
-    plt.show()
-
-# Example usage:
 points = [(0, 3), (1, 1), (2, 2), (4, 4), (0, 0), (1, 2), (3, 1), (3.5, 0.5)]
 convex_hull = graham_scan(points)
-
 print("Convex Hull:", convex_hull)
 
-plot_convex_hull(points, convex_hull)
+for i in range(100):
+    steps = int(random() * 100)
+    angle = int(random() * 360)
+    tl.right(angle)
+    tl.fd(steps)
