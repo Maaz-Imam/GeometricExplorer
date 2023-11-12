@@ -19,6 +19,9 @@ def graham_scan(points):
 
     fig, ax = plt.subplots()
 
+    ax.clear()
+    ax.scatter(*zip(*points), c='black', marker='o', label='Points')
+    
     for i in range(2, len(sorted_points)):
         # Pop the last point from the hull if a clockwise turn is encountered
         while len(hull) > 1 and cross_product(hull[-2], hull[-1], sorted_points[i]) <= 0:
@@ -28,8 +31,6 @@ def graham_scan(points):
         hull.append(sorted_points[i])
 
         # Plot current state
-        ax.clear()
-        ax.scatter(*zip(*points), c='black', marker='o', label='Points')
         ax.plot(*zip(*hull, hull[0]), color='r', linestyle='-', linewidth=2, label='Convex Hull')
         ax.legend()
         plt.title('Graham Scan - Step {}'.format(i + 1))
