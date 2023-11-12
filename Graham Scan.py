@@ -32,7 +32,7 @@ def graham_scan(points):
 
         # Plot current state
         ax.plot(*zip(*hull, hull[0]), color='r', linestyle='-', linewidth=2, label='Convex Hull')
-        ax.legend()
+        # ax.legend()
         plt.title('Graham Scan - Step {}'.format(i + 1))
         plt.pause(2)  # Adjust the pause time as needed
 
