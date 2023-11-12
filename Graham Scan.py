@@ -33,7 +33,7 @@ def graham_scan(points):
         ax.plot(*zip(*hull, hull[0]), color='r', linestyle='-', linewidth=2, label='Convex Hull')
         ax.legend()
         plt.title('Graham Scan - Step {}'.format(i + 1))
-        plt.pause(0.5)  # Adjust the pause time as needed
+        plt.pause(2)  # Adjust the pause time as needed
 
     plt.show()
 
@@ -42,7 +42,7 @@ def graham_scan(points):
 # Example usage
 if __name__ == "__main__":
     # Replace this list with your set of coordinates
-    points = [(0, 0), (1, 1), (2, 2), (2, 0), (0, 2), (1, 0)]
+    points = [(0, 3), (1, 1), (2, 2), (4, 4), (0, 0), (1, 2), (3, 1), (3, 3)]
 
     # Run Graham Scan algorithm
     convex_hull = graham_scan(points)
